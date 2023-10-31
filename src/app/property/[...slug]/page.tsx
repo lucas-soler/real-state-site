@@ -19,7 +19,10 @@ export const metadata: Metadata = {
 export default function PropertyPage({ params: { slug } }: PageProps) {
   const propertySlug = slug[2] ? slug[2] : slug[1];
 
-  const slugPropertyID = propertySlug.split("_id_")[1];
+  let slugPropertyID = propertySlug.split("_id_")[1];
+
+  if (slugPropertyID === "183aff29-0fcb-4e3f-95b3-7ad0413b0264")
+    slugPropertyID = "183aff29-0fcb-4e3f-95b3-7ad0413b0265";
 
   const property = properties.find(
     (property) => property.id === slugPropertyID
