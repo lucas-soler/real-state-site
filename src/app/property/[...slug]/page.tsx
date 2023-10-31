@@ -3,7 +3,9 @@ import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { v4 as uuidv4 } from "uuid";
 
-export const revalidate = 60;
+export const revalidate = 120; // it will revalidate the entire page after 2 minutes (2 * 60 = 120 seconds)
+// when a user access this page after 2 minutes from the last generation he will see the previous page generated
+// while NextJS generates the new version on the background
 
 interface PageProps {
   params: { slug: string[] };
