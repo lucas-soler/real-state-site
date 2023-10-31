@@ -213,6 +213,8 @@ export const properties: Property[] = [
   },
 ];
 
+console.log(properties);
+
 export default function Test() {
   return (
     <main className="flex min-h-screen flex-col justify-between p-4 space-y-4">
