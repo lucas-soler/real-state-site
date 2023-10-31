@@ -21,9 +21,6 @@ export default function PropertyPage({ params: { slug } }: PageProps) {
 
   let slugPropertyID = propertySlug.split("_id_")[1];
 
-  if (slugPropertyID === "183aff29-0fcb-4e3f-95b3-7ad0413b0264")
-    slugPropertyID = "183aff29-0fcb-4e3f-95b3-7ad0413b0265";
-
   const property = properties.find(
     (property) => property.id === slugPropertyID
   );
@@ -41,8 +38,6 @@ export default function PropertyPage({ params: { slug } }: PageProps) {
 }
 
 export async function generateStaticParams() {
-  console.log("gerando os params");
-
   return properties.map((property) => ({
     slug: [property.address.city, property.address.state],
   }));
