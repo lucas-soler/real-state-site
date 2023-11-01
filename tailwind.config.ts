@@ -19,6 +19,9 @@ const config: Config = {
       fontSize: {
         sm: "0.8125rem",
       },
+      fontFamily: {
+        logo: ['"Helvetica"'],
+      },
     },
   },
   plugins: [],

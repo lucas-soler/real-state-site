@@ -212,11 +212,9 @@ export const properties: Property[] = [
   },
 ];
 
-console.log(properties);
-
 export default function Test() {
   return (
-    <main className="flex min-h-screen flex-col justify-between p-4 space-y-4">
+    <main className="flex grow min-h-screen max-w-5xl m-auto py-8 px-4 flex-col justify-between space-y-8">
       {properties.map((property) => (
         <PropertyCard property={property} key={`property-${property.id}`} />
       ))}

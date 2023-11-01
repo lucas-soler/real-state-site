@@ -1,4 +1,4 @@
-import { properties } from "@/app/test/page";
+import { properties } from "@/app/list/page";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { v4 as uuidv4 } from "uuid";

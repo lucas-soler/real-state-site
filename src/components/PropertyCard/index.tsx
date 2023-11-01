@@ -47,9 +47,13 @@ export interface Property {
 
 interface PropertyCardProps {
   property: Property;
+  isSimplified?: boolean;
 }
 
-export function PropertyCard({ property }: PropertyCardProps) {
+export function PropertyCard({
+  property,
+  isSimplified = false,
+}: PropertyCardProps) {
   const mainPicture = property.pictures.find((picture) => picture.isMain);
   property.characteristics.sort((a, b) => a.order - b.order);
   property.features.sort((a, b) => a.order - b.order);
@@ -61,8 +65,8 @@ export function PropertyCard({ property }: PropertyCardProps) {
     .replaceAll(" ", "-")}/${property.slug()}`;
 
   return (
-    <Link href={propertyURL}>
-      <section className="flex flex-1 flex-col border border-regal-blue rounded-sm ">
+    <section className="flex flex-1 flex-col border border-regal-blue rounded-sm ">
+      <Link href={propertyURL}>
         <header className="h-48 relative overflow-hidden rounded-t-sm">
           <Image
             src={mainPicture ? mainPicture.url : noImage}
@@ -108,18 +112,22 @@ export function PropertyCard({ property }: PropertyCardProps) {
               );
             })}
           </article>
-          <article className="flex flex-row flex-wrap max-h-16 truncate text-sm capitalize text-gray-400 font-normal">
-            {property.features.map((feature) => {
-              return (
-                <span
-                  className="bg-neutral-200 p-1.5 rounded-xl max-w-[180px] m-1 truncate"
-                  key={`feature-${feature.order}`}
-                >
-                  {feature.description}
-                </span>
-              );
-            })}
-          </article>
+          {!isSimplified ? (
+            <article className="flex flex-row flex-wrap max-h-16 truncate text-sm capitalize text-gray-400 font-normal">
+              {property.features.map((feature) => {
+                return (
+                  <span
+                    className="bg-neutral-200 p-1.5 rounded-xl max-w-[180px] m-1 truncate"
+                    key={`feature-${feature.order}`}
+                  >
+                    {feature.description}
+                  </span>
+                );
+              })}
+            </article>
+          ) : (
+            ""
+          )}
           <article className="flex flex-col text-sm space-y-1 text-gray-500">
             <span>{property.description}</span>
             <address className="truncate capitalize">
@@ -127,18 +135,22 @@ export function PropertyCard({ property }: PropertyCardProps) {
               {property.address.city}, {property.address.state}
             </address>
           </article>
-          <footer className="flex flex-row items-center justify-between text-sm text-blue-500">
-            <section className="flex space-x-5">
-              <button className="uppercase">telefone</button>
-              <button className="uppercase">mensagem</button>
-              <button className="uppercase">whatsapp</button>
-            </section>
-            <section className="flex">
-              <WishListButton />
-            </section>
-          </footer>
         </main>
-      </section>
-    </Link>
+      </Link>
+      {!isSimplified ? (
+        <footer className="flex flex-row p-4 items-center justify-between text-sm text-blue-500">
+          <section className="flex space-x-5">
+            <button className="uppercase">telefone</button>
+            <button className="uppercase">mensagem</button>
+            <button className="uppercase">whatsapp</button>
+          </section>
+          <section className="flex">
+            <WishListButton />
+          </section>
+        </footer>
+      ) : (
+        ""
+      )}
+    </section>
   );
 }
