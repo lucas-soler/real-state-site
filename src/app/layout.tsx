@@ -1,4 +1,5 @@
 import { Logo } from "@/components/Logo";
+import { Buildings } from "@phosphor-icons/react/dist/ssr/Buildings";
 import type { Metadata } from "next";
 import { Open_Sans } from "next/font/google";
 import Link from "next/link";
@@ -19,7 +20,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${openSans.className}`}>
-        <header className="hidden md:flex h-14 text-white bg-sky-600 items-center px-12">
+        <header className="hidden md:flex h-24 text-white bg-sky-600 items-center px-12">
           <Logo />
           <section className="flex flex-1 items-start px-12 space-x-8 font-medium text-s uppercase">
             <Link href={`list`}>
@@ -38,7 +39,7 @@ export default function RootLayout({
             </Link>
           </section>
         </header>
-        <header className="flex md:hidden h-14 text-white bg-sky-600 items-center px-4">
+        <header className="flex md:hidden h-24 text-white bg-sky-600 items-center px-4">
           <section className="flex items-center uppercase">
             <span>menu</span>
           </section>
@@ -48,6 +49,16 @@ export default function RootLayout({
           </section>
         </header>
         {children}
+        <footer className="flex h-24 text-white bg-sky-600 items-center px-12">
+          <section className="flex flex-col flex-1 capitalize">
+            <span>
+              © {new Date().getFullYear()} real state site. all rights reserved.
+            </span>
+          </section>
+          <section className="flex justify-end">
+            <Buildings size={40} color="white" weight="bold" />
+          </section>
+        </footer>
       </body>
     </html>
   );
