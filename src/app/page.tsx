@@ -10,7 +10,7 @@ export default function Home() {
         <Image
           src={realtyImage}
           alt="realty image"
-          className="rounded-xl"
+          className="rounded-lg"
           style={{
             objectFit: "cover",
           }}
