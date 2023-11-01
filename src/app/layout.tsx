@@ -23,18 +23,18 @@ export default function RootLayout({
         <header className="hidden md:flex h-24 text-white bg-sky-600 items-center px-12">
           <Logo />
           <section className="flex flex-1 items-start px-12 space-x-8 font-medium text-s uppercase">
-            <Link href={`list`}>
+            <Link href={`/list`}>
               <span>buy</span>
             </Link>
-            <Link href={`list`}>
+            <Link href={`/list`}>
               <span>rent</span>
             </Link>
-            <Link href={`list`}>
+            <Link href={`/list`}>
               <span>new ones</span>
             </Link>
           </section>
           <section className="flex items-center uppercase">
-            <Link href={`list`}>
+            <Link href={`/list`}>
               <span>log in</span>
             </Link>
           </section>

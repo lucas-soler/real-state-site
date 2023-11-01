@@ -26,13 +26,13 @@ interface PropertyAddress {
   street?: string;
   neighborhood: string;
   city: string;
-  citySlug: () => {};
+  citySlug: string;
   state: string;
 }
 
 export interface Property {
   id: string;
-  slug: () => {};
+  slug: string;
   pictures: PropertyPicture[];
   description: string;
   price: number;
@@ -66,7 +66,7 @@ export function PropertyCard({
     .toLowerCase()
     .replaceAll(" ", "-")}/${property.address.state
     .toLowerCase()
-    .replaceAll(" ", "-")}/${property.slug()}`;
+    .replaceAll(" ", "-")}/${property.slug}`;
 
   let containerStyle =
     "flex flex-1 flex-col border border-regal-blue rounded-sm";

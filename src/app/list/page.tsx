@@ -1,19 +1,9 @@
 import { Property, PropertyCard } from "@/components/PropertyCard";
 
-function generatePropertySlug(this: Property) {
-  return (
-    this.description.replaceAll(" ", "-").replaceAll(",", "") + "_id_" + this.id
-  );
-}
-
-function generateCitySlug(this: Property) {
-  return this.address.city.replaceAll(" ", "-");
-}
-
 export const properties: Property[] = [
   {
     id: "183aff29-0fcb-4e3f-95b3-7ad0413b0265",
-    slug: generatePropertySlug,
+    slug: "3-beds-2-baths-apartment-for-sale-79m²_id_183aff29-0fcb-4e3f-95b3-7ad0413b0265",
     pictures: [
       {
         id: "ac7f696b-4561-4061-b5cf-64060706b72c",
@@ -82,7 +72,7 @@ export const properties: Property[] = [
       street: "tucano street, 1",
       neighborhood: "palmas do arvoredo",
       city: "governador celso ramos",
-      citySlug: generateCitySlug,
+      citySlug: "governador-celso-ramos",
       state: "sc",
     },
     phoneNumber: 47988220990,
@@ -91,7 +81,7 @@ export const properties: Property[] = [
   },
   {
     id: "d89f1a32-d211-4022-9d64-e02c5c76e82d",
-    slug: generatePropertySlug,
+    slug: "2-beds-2-baths-apartment-for-sale-62m²_id_d89f1a32-d211-4022-9d64-e02c5c76e82d",
     pictures: [
       {
         id: "f66dd19b-4e57-4de1-87db-ebb8351db0e3",
@@ -146,7 +136,7 @@ export const properties: Property[] = [
     address: {
       neighborhood: "palmas do arvoredo",
       city: "governador celso ramos",
-      citySlug: generateCitySlug,
+      citySlug: "governador-celso-ramos",
       state: "sc",
     },
     phoneNumber: 47988220990,
@@ -155,7 +145,7 @@ export const properties: Property[] = [
   },
   {
     id: "1c46e581-47d6-4ade-90a0-b1bc70866a05",
-    slug: generatePropertySlug,
+    slug: "4-beds-3-baths-apartment-for-sale-101 m²_id_1c46e581-47d6-4ade-90a0-b1bc70866a05",
     pictures: [],
     description: "4 beds, 3 baths apartment for sale, 101 m²",
     price: 1490000,
@@ -203,7 +193,7 @@ export const properties: Property[] = [
       street: "avenida caravelas",
       neighborhood: "praia grande",
       city: "governador celso ramos",
-      citySlug: generateCitySlug,
+      citySlug: "governador-celso-ramos",
       state: "sc",
     },
     phoneNumber: 47988220990,
