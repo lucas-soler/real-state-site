@@ -1,11 +1,12 @@
 import { Logo } from "@/components/Logo";
 import { Buildings } from "@phosphor-icons/react/dist/ssr/Buildings";
 import type { Metadata } from "next";
-import { Open_Sans } from "next/font/google";
+import { Open_Sans, Poppins } from "next/font/google";
 import Link from "next/link";
 import "./globals.css";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
+export const poppins = Poppins({ subsets: ["latin"], weight: "300" });
 
 export const metadata: Metadata = {
   title: "Create Next App",
