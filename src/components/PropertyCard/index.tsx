@@ -48,11 +48,15 @@ export interface Property {
 interface PropertyCardProps {
   property: Property;
   isSimplified?: boolean;
+  isSlide?: boolean;
+  order?: number;
 }
 
 export function PropertyCard({
   property,
   isSimplified = false,
+  isSlide = false,
+  order,
 }: PropertyCardProps) {
   const mainPicture = property.pictures.find((picture) => picture.isMain);
   property.characteristics.sort((a, b) => a.order - b.order);
@@ -64,8 +68,15 @@ export function PropertyCard({
     .toLowerCase()
     .replaceAll(" ", "-")}/${property.slug()}`;
 
+  let containerStyle =
+    "flex flex-1 flex-col border border-regal-blue rounded-sm";
+
+  if (isSlide) {
+    containerStyle = `flex flex-1 flex-col border border-regal-blue rounded-sm keen-slider__slide number-slide${order}`;
+  }
+
   return (
-    <section className="flex flex-1 flex-col border border-regal-blue rounded-sm ">
+    <section className={containerStyle}>
       <Link href={propertyURL}>
         <header className="h-48 relative overflow-hidden rounded-t-sm">
           <Image
