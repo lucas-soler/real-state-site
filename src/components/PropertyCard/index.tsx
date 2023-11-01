@@ -72,7 +72,7 @@ export function PropertyCard({
     "flex flex-1 flex-col border border-regal-blue rounded-sm";
 
   if (isSlide) {
-    containerStyle = `flex flex-1 flex-col border border-regal-blue rounded-sm keen-slider__slide number-slide${order}`;
+    containerStyle = `keen-slider__slide number-slide${order}`;
   }
 
   return (
