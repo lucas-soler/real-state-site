@@ -39,7 +39,7 @@ export default function Home() {
   });
 
   return (
-    <main className="flex min-h-screen flex-col space-y-20 max-w-screen-2xl m-auto py-8 px-20 justify-center">
+    <main className="flex min-h-screen flex-col space-y-20 max-w-screen-2xl m-auto py-8 px-4 md:px-20">
       <div className="flex flex-col space-y-10 h-2/5">
         <h2 className="capitalize font-semibold text-xl">
           featured properties
