@@ -49,7 +49,7 @@ export default function RootLayout({
           </section>
         </header>
         {children}
-        <footer className="flex h-24 text-white bg-sky-600 items-center px-12">
+        <footer className="flex h-24 text-white bg-sky-600 items-center px-4 md:px-12">
           <section className="flex flex-col flex-1 capitalize">
             <span>
               © {new Date().getFullYear()} real state site. all rights reserved.
