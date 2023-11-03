@@ -47,7 +47,7 @@ export function PropertyCarousel({ properties }: PropertyCarouselProps) {
         <PropertyCard
           property={property}
           key={`property-${property.id}`}
-          isSimplified
+          type="mini"
           isSlide
           order={index}
         />

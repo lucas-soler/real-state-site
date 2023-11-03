@@ -47,14 +47,14 @@ export interface Property {
 
 interface PropertyCardProps {
   property: Property;
-  isSimplified?: boolean;
+  type?: "mini" | "full";
   isSlide?: boolean;
   order?: number;
 }
 
 export function PropertyCard({
   property,
-  isSimplified = false,
+  type = "full",
   isSlide = false,
   order,
 }: PropertyCardProps) {
@@ -69,10 +69,10 @@ export function PropertyCard({
     .replaceAll(" ", "-")}/${property.slug}`;
 
   let containerStyle =
-    "flex flex-1 flex-col border border-regal-blue rounded-sm";
+    "flex flex-1 flex-col border border-gray-300 rounded-sm grow-0";
 
   if (isSlide) {
-    containerStyle = `border border-regal-blue rounded-sm keen-slider__slide number-slide${order}`;
+    containerStyle = `border border-gray-300 rounded-sm keen-slider__slide number-slide${order} grow-0`;
   }
 
   return (
@@ -123,7 +123,7 @@ export function PropertyCard({
               );
             })}
           </article>
-          {!isSimplified ? (
+          {type === "full" ? (
             <article className="flex flex-row flex-wrap max-h-16 truncate text-sm capitalize text-gray-400 font-normal">
               {property.features.map((feature) => {
                 return (
@@ -148,7 +148,7 @@ export function PropertyCard({
           </article>
         </main>
       </Link>
-      {!isSimplified ? (
+      {type === "full" ? (
         <footer className="flex flex-row p-4 items-center justify-between text-sm text-blue-500">
           <section className="flex space-x-5">
             <button className="uppercase">telefone</button>
@@ -156,7 +156,7 @@ export function PropertyCard({
             <button className="uppercase">whatsapp</button>
           </section>
           <section className="flex">
-            <WishListButton />
+            <WishListButton propertyID={property.id} />
           </section>
         </footer>
       ) : (

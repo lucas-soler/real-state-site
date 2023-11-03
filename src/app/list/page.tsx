@@ -202,7 +202,7 @@ export const properties: Property[] = [
   },
 ];
 
-export default function Test() {
+export default function List() {
   return (
     <main className="flex grow min-h-screen max-w-5xl m-auto py-8 px-4 flex-col justify-between space-y-8">
       {properties.map((property) => (

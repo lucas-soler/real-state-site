@@ -1,11 +1,18 @@
 "use client";
 
+import { SessionContext } from "@/app/session-provider";
 import { Heart } from "@phosphor-icons/react";
-import { useState } from "react";
+import { useContext, useState } from "react";
 
-export function WishListButton() {
-  const [clicks, setClicks] = useState(0);
+interface WishListProps {
+  propertyID: string;
+}
+
+export function WishListButton({ propertyID }: WishListProps) {
+  const { wishList, setWishList } = useContext(SessionContext);
   const [errorMessage, setErrorMessage] = useState("");
+
+  const propertyIsAlreadyInWishList = wishList.includes(propertyID);
 
   async function handleResponse() {
     try {
@@ -24,9 +31,11 @@ export function WishListButton() {
   }
 
   function handleClick() {
-    setClicks(clicks + 1);
-
-    handleResponse();
+    if (!propertyIsAlreadyInWishList) {
+      setWishList([...wishList, propertyID]);
+    } else {
+      setWishList(wishList.filter((id) => id !== propertyID));
+    }
   }
 
   return (
@@ -35,7 +44,10 @@ export function WishListButton() {
         className="border border-gray-300 rounded-xl p-2 hover:bg-blue-100"
         onClick={handleClick}
       >
-        <Heart size={24} weight="bold" /> {clicks}
+        <Heart
+          size={24}
+          weight={propertyIsAlreadyInWishList ? "fill" : "bold"}
+        />
       </button>
       <span>{errorMessage}</span>
     </>
