@@ -79,12 +79,22 @@ function LogInDialog() {
 
         <Flex gap="3" mt="4" justify="end">
           <Dialog.Close>
-            <Button variant="soft" color="gray">
+            <Button
+              variant="soft"
+              color="gray"
+              className="uppercase hover:cursor-pointer"
+            >
               Cancel
             </Button>
           </Dialog.Close>
           <Dialog.Close>
-            <Button>Log In</Button>
+            <Button
+              variant="soft"
+              color="gray"
+              className="uppercase hover:cursor-pointer"
+            >
+              Log In
+            </Button>
           </Dialog.Close>
         </Flex>
       </Dialog.Content>
