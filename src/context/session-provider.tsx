@@ -14,6 +14,8 @@ export const SessionContext = createContext({} as SessionContextProps);
 interface SessionContextProps {
   wishList: String[];
   setWishList: Dispatch<SetStateAction<String[]>>;
+  recentlySeen: String[];
+  setRecentlySeen: Dispatch<SetStateAction<String[]>>;
 }
 
 interface SessionProviderProps {
@@ -22,6 +24,7 @@ interface SessionProviderProps {
 
 export default function SessionProvider({ children }: SessionProviderProps) {
   const [wishList, setWishList] = useState<String[]>([]);
+  const [recentlySeen, setRecentlySeen] = useState<String[]>([]);
 
   useEffect(() => {
     if (wishList.length > 0) {
@@ -36,7 +39,9 @@ export default function SessionProvider({ children }: SessionProviderProps) {
   }, []);
 
   return (
-    <SessionContext.Provider value={{ wishList, setWishList }}>
+    <SessionContext.Provider
+      value={{ wishList, setWishList, recentlySeen, setRecentlySeen }}
+    >
       {children}
     </SessionContext.Provider>
   );

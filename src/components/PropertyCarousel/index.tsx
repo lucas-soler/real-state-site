@@ -5,10 +5,11 @@ import { useKeenSlider } from "keen-slider/react";
 import { Property, PropertyCard } from "../PropertyCard";
 
 interface PropertyCarouselProps {
+  name: string;
   properties: Property[];
 }
 
-export function PropertyCarousel({ properties }: PropertyCarouselProps) {
+export function PropertyCarousel({ name, properties }: PropertyCarouselProps) {
   const [slider] = useKeenSlider({
     slides: {
       perView: 5,
@@ -46,7 +47,7 @@ export function PropertyCarousel({ properties }: PropertyCarouselProps) {
       {properties.concat(properties).map((property, index) => (
         <PropertyCard
           property={property}
-          key={`property-${property.id}`}
+          key={`${name}-property-${property.id}`}
           type="mini"
           isSlide
           order={index}

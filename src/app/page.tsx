@@ -1,4 +1,5 @@
 import { PropertyCarousel } from "@/components/PropertyCarousel";
+import { RecentlySeen } from "@/components/RecentlySeen";
 import Image from "next/image";
 import { poppins } from "./layout";
 import { properties } from "./list/page";
@@ -27,11 +28,12 @@ export default function Home() {
         <h2 className="capitalize font-semibold text-xl">
           featured properties
         </h2>
-        <PropertyCarousel properties={properties} />
+        <PropertyCarousel name="featured" properties={properties} />
       </div>
+
       <div className="flex flex-col space-y-10 h-2/5">
         <h2 className="capitalize font-semibold text-xl">recently seen</h2>
-        <PropertyCarousel properties={properties} />
+        <RecentlySeen />
       </div>
     </main>
   );

@@ -2,6 +2,7 @@ import { properties } from "@/app/list/page";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { v4 as uuidv4 } from "uuid";
+import { RecentlySeen } from "../components/RecentlySeen";
 
 export const revalidate = 120; // it will revalidate the entire page after 2 minutes (2 * 60 = 120 seconds)
 // when a user access this page after 2 minutes from the last generation he will see the previous page generated
@@ -31,6 +32,7 @@ export default function PropertyPage({ params: { slug } }: PageProps) {
 
   return (
     <>
+      <RecentlySeen propertyID={slugPropertyID} />
       <h1>{property.description}</h1>
       <footer>{uuidv4()}</footer>
     </>

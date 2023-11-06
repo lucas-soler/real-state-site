@@ -1,6 +1,6 @@
 "use client";
 
-import { SessionContext } from "@/app/session-provider";
+import { SessionContext } from "@/context/session-provider";
 import { Heart } from "@phosphor-icons/react";
 import { useContext, useState } from "react";
 
@@ -37,6 +37,8 @@ export function WishListButton({ propertyID }: WishListProps) {
       setWishList(wishList.filter((id) => id !== propertyID));
     }
   }
+
+  console.log("wish list button");
 
   return (
     <>

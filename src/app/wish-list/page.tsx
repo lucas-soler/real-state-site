@@ -1,8 +1,8 @@
 "use client";
 import { PropertyCard } from "@/components/PropertyCard";
 import { useContext } from "react";
+import { SessionContext } from "../../context/session-provider";
 import { properties } from "../list/page";
-import { SessionContext } from "../session-provider";
 
 export default function WishList() {
   const { wishList } = useContext(SessionContext);

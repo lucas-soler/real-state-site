@@ -3,8 +3,8 @@ import { Buildings } from "@phosphor-icons/react/dist/ssr/Buildings";
 import type { Metadata } from "next";
 import { Open_Sans, Poppins } from "next/font/google";
 import Link from "next/link";
+import SessionProvider from "../context/session-provider";
 import "./globals.css";
-import SessionProvider from "./session-provider";
 
 const openSans = Open_Sans({ subsets: ["latin"] });
 export const poppins = Poppins({ subsets: ["latin"], weight: "300" });
