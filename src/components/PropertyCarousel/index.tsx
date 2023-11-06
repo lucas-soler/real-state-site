@@ -44,7 +44,7 @@ export function PropertyCarousel({ name, properties }: PropertyCarouselProps) {
 
   return (
     <section className="keen-slider" ref={slider}>
-      {properties.concat(properties).map((property, index) => (
+      {properties.map((property, index) => (
         <PropertyCard
           property={property}
           key={`${name}-property-${property.id}`}

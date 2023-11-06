@@ -14,8 +14,6 @@ export function RecentlySeen() {
       properties.find((property) => property.id === recentlySeenID)!
   );
 
-  console.log(recentlySeenProperties);
-
   return recentlySeenProperties.length > 0 ? (
     <>
       <PropertyCarousel

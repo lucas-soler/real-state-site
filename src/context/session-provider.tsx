@@ -30,11 +30,19 @@ export default function SessionProvider({ children }: SessionProviderProps) {
     if (wishList.length > 0) {
       localStorage.setItem("wishList", JSON.stringify(wishList));
     }
-  }, [wishList]);
+
+    if (recentlySeen.length > 0) {
+      localStorage.setItem("recentlySeen", JSON.stringify(recentlySeen));
+    }
+  }, [wishList, recentlySeen]);
 
   useEffect(() => {
     if (localStorage.getItem("wishList")) {
       setWishList(JSON.parse(localStorage.getItem("wishList")!));
+    }
+
+    if (localStorage.getItem("recentlySeen")) {
+      setRecentlySeen(JSON.parse(localStorage.getItem("recentlySeen")!));
     }
   }, []);
 
