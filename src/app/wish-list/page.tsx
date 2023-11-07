@@ -9,15 +9,19 @@ export default function WishList() {
 
   return (
     <main className="flex min-h-screen max-w-5xl m-auto py-8 px-4 flex-col justify-between space-y-8">
-      {wishList.map((propertyID) => {
-        const property = properties.find(
-          (property) => property.id === propertyID
-        )!;
+      {wishList.length > 0 ? (
+        wishList.map((propertyID) => {
+          const property = properties.find(
+            (property) => property.id === propertyID
+          )!;
 
-        return (
-          <PropertyCard property={property} key={`property-${property.id}`} />
-        );
-      })}
+          return (
+            <PropertyCard property={property} key={`property-${property.id}`} />
+          );
+        })
+      ) : (
+        <h2 className="self-center font-medium">No favorite properties</h2>
+      )}
     </main>
   );
 }
