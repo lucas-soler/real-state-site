@@ -36,7 +36,7 @@ export default function PhotoCarousel({ pictures }: PhotoCarouselProps) {
               <Image
                 src={picture.url}
                 fill={true}
-                style={{ objectFit: "fill" }}
+                style={{ objectFit: "cover" }}
                 alt={picture.alternativeText}
               />
             </div>
