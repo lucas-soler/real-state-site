@@ -53,6 +53,10 @@ export async function generateMetadata(
     (property) => property.id === slugPropertyID
   )!;
 
+  console.log("gerando metadata");
+  console.log(property);
+  console.log(slug);
+
   return {
     manifest: "/manifest.json",
     category: `real state`,
