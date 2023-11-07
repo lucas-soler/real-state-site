@@ -3,7 +3,7 @@ import Link from "next/link";
 import { WishListButton } from "../WishListButton";
 import noImage from "/public/no-image.jpg";
 
-interface PropertyPicture {
+export interface PropertyPicture {
   id: string;
   isMain: boolean;
   order: number;
@@ -73,7 +73,7 @@ export function PropertyCard({
     "flex flex-1 flex-col border border-gray-300 rounded-sm grow-0";
 
   if (isSlide) {
-    containerStyle = `border border-gray-300 rounded-sm keen-slider__slide number-slide${order} grow-0`;
+    containerStyle = `border border-gray-300 rounded-sm keen-slider__slide grow-0`;
   }
 
   return (

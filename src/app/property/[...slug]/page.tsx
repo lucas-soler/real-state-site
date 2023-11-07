@@ -3,6 +3,7 @@ import { capitalizeSentence } from "@/lib/utils";
 import { Metadata, ResolvingMetadata } from "next";
 import { notFound } from "next/navigation";
 import { v4 as uuidv4 } from "uuid";
+import PhotoCarousel from "../components/PhotoCarousel";
 import { RecentlySeen } from "../components/RecentlySeen";
 
 export const revalidate = 120; // it will revalidate the entire page after 2 minutes (2 * 60 = 120 seconds)
@@ -29,7 +30,14 @@ export default function PropertyPage({ params: { slug } }: PageProps) {
   return (
     <>
       <RecentlySeen propertyID={slugPropertyID} />
-      <h1>{property.description}</h1>
+      <main className="flex min-h-screen flex-col space-y-10 max-w-screen-2xl m-auto py-2 px-4 md:px-60">
+        <section>
+          <PhotoCarousel pictures={property.pictures} />
+        </section>
+        <h1 className="font-semibold text-3xl capitalize">
+          {property.description} - {property.address.neighborhood}
+        </h1>
+      </main>
       <footer>{uuidv4()}</footer>
     </>
   );

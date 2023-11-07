@@ -28,7 +28,10 @@ export default function Home() {
         <h2 className="capitalize font-semibold text-xl">
           featured properties
         </h2>
-        <PropertyCarousel name="featured" properties={properties} />
+        <PropertyCarousel
+          name="featured"
+          properties={properties.concat(properties)}
+        />
       </div>
 
       <div className="flex flex-col space-y-10 h-2/5">
