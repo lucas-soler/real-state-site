@@ -37,7 +37,7 @@ export default function PropertyPage({ params: { slug } }: PageProps) {
 
 export async function generateStaticParams() {
   return properties.map((property) => ({
-    slug: [property.address.city, property.address.state],
+    slug: [property.address.citySlug, property.address.state],
   }));
 }
 
