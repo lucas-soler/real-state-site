@@ -1,5 +1,6 @@
 "use client";
 
+import { Heart } from "@phosphor-icons/react";
 import { Button, Dialog, Flex, Text, TextField } from "@radix-ui/themes";
 import Link from "next/link";
 import { Logo } from "../Logo";
@@ -34,7 +35,7 @@ export function Header() {
         <Logo />
         <section className="flex items-center space-x-8 uppercase">
           <Link href={`/wish-list`}>
-            <span>my wish list</span>
+            <Heart size={24} weight={"fill"} color="white" />
           </Link>
           <LogInDialog />
         </section>
