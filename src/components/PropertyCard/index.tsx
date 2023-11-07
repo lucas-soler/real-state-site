@@ -92,7 +92,7 @@ export function PropertyCard({
             <span className="text-xl font-medium">
               {property.price.toLocaleString("pt-BR", {
                 style: "currency",
-                currency: "BRL",
+                currency: "USd",
                 minimumFractionDigits: 0,
               })}
             </span>
@@ -102,7 +102,7 @@ export function PropertyCard({
                 <span className="font-medium">
                   {property.condoFee.toLocaleString("pt-BR", {
                     style: "currency",
-                    currency: "BRL",
+                    currency: "USD",
                     minimumFractionDigits: 0,
                   })}
                 </span>

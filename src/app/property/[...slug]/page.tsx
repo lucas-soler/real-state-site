@@ -30,13 +30,20 @@ export default function PropertyPage({ params: { slug } }: PageProps) {
   return (
     <>
       <RecentlySeen propertyID={slugPropertyID} />
-      <main className="flex min-h-screen flex-col space-y-10 max-w-screen-2xl m-auto py-2 px-4 md:px-60">
+      <main className="flex min-h-screen flex-col space-y-10 max-w-screen-2xl m-auto py-2 px-4 lg:px-60">
         <section>
           <PhotoCarousel pictures={property.pictures} />
         </section>
-        <h1 className="font-semibold text-3xl capitalize">
+        <h1 className="font-semibold text-2xl md:text-3xl capitalize">
           {property.description} - {property.address.neighborhood}
         </h1>
+        <h2 className="font-semibold text-3xl md:text-4xl capitalize">
+          {property.price.toLocaleString("pt-BR", {
+            style: "currency",
+            currency: "USD",
+            minimumFractionDigits: 0,
+          })}
+        </h2>
       </main>
       <footer>{uuidv4()}</footer>
     </>
