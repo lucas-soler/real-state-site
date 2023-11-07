@@ -38,8 +38,6 @@ export function WishListButton({ propertyID }: WishListProps) {
     }
   }
 
-  console.log("wish list button");
-
   return (
     <>
       <button
