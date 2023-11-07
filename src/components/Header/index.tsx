@@ -103,6 +103,9 @@ export function Header() {
           </Link>
           <LogInDialog />
         </section>
+        <section className="flex sm:hidden items-center space-x-8 uppercase">
+          <LogInDialog />
+        </section>
       </header>
     </>
   );
