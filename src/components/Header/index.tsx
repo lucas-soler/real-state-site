@@ -1,11 +1,14 @@
 "use client";
 
-import { Heart } from "@phosphor-icons/react";
+import { Heart, UserCircle } from "@phosphor-icons/react";
 import { Button, Dialog, Flex, Text, TextField } from "@radix-ui/themes";
 import Link from "next/link";
+import { useState } from "react";
 import { Logo } from "../Logo";
 
 export function Header() {
+  const [isNavOpen, setIsNavOpen] = useState(false);
+
   return (
     <>
       <header className="hidden md:flex h-24 text-white bg-sky-600 items-center px-12">
@@ -29,11 +32,72 @@ export function Header() {
         </section>
       </header>
       <header className="flex md:hidden h-24 text-white bg-sky-600 items-center px-4">
-        <section className="flex items-center uppercase">
-          <span>menu</span>
+        <section className="MOBILE-MENU flex lg:hidden">
+          <div
+            className="HAMBURGER-ICON space-y-2 hover:cursor-pointer"
+            onClick={() => setIsNavOpen((prev) => !prev)}
+          >
+            <span className="block h-0.5 w-8 bg-white"></span>
+            <span className="block h-0.5 w-8 bg-white"></span>
+            <span className="block h-0.5 w-8 bg-white"></span>
+          </div>
+
+          <div className={isNavOpen ? "showModal" : "hideModal"}>
+            <div
+              className="absolute top-0 right-0 px-8 py-8"
+              onClick={() => setIsNavOpen(false)}
+            >
+              <svg
+                className="h-8 w-8 text-gray-600"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+              >
+                <line x1="18" y1="6" x2="6" y2="18" />
+                <line x1="6" y1="6" x2="18" y2="18" />
+              </svg>
+            </div>
+            <ul className="flex flex-col items-center justify-between min-h-[250px] text-black">
+              <li
+                key={`hamburguer-0`}
+                className="border-b border-gray-600 my-8 uppercase"
+              >
+                <a href={`/list`} onClick={() => setIsNavOpen(false)}>
+                  buy
+                </a>
+              </li>
+              <li
+                key={`hamburguer-1`}
+                className="border-b border-gray-600 my-8 uppercase"
+              >
+                <a href={`/list`} onClick={() => setIsNavOpen(false)}>
+                  rent
+                </a>
+              </li>
+              <li
+                key={`hamburguer-2`}
+                className="border-b border-gray-600 my-8 uppercase"
+              >
+                <a href={`/list`} onClick={() => setIsNavOpen(false)}>
+                  new ones
+                </a>
+              </li>
+              <li
+                key={`hamburguer-3`}
+                className="border-b border-gray-600 my-8 uppercase"
+              >
+                <a href={`/wish-list`} onClick={() => setIsNavOpen(false)}>
+                  wish list
+                </a>
+              </li>
+            </ul>
+          </div>
         </section>
         <Logo />
-        <section className="flex items-center space-x-8 uppercase">
+        <section className="hidden sm:flex items-center space-x-8 uppercase">
           <Link href={`/wish-list`}>
             <Heart size={24} weight={"fill"} color="white" />
           </Link>
@@ -48,7 +112,9 @@ function LogInDialog() {
   return (
     <Dialog.Root>
       <Dialog.Trigger>
-        <Button className="uppercase hover:cursor-pointer">log in</Button>
+        <Button className="uppercase hover:cursor-pointer">
+          <UserCircle size={28} color="white" weight="fill" />
+        </Button>
       </Dialog.Trigger>
 
       <Dialog.Content style={{ maxWidth: 450 }}>

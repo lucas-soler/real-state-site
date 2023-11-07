@@ -13,6 +13,7 @@ export const properties: Property[] = [
         alternativeText: "property balcony",
       },
     ],
+    title: "3 beds, 2 baths apartment for sale in governador celso ramos",
     description: "3 beds, 2 baths apartment for sale, 79 m²",
     condoFee: 180,
     price: 750000,
@@ -91,6 +92,8 @@ export const properties: Property[] = [
         alternativeText: "property restroom",
       },
     ],
+    title:
+      "2 beds, 2 baths apartment for sale, 62 m² in governador celso ramos",
     description: "2 beds, 2 baths apartment for sale, 62 m²",
     price: 690000,
     characteristics: [
@@ -147,6 +150,8 @@ export const properties: Property[] = [
     id: "1c46e581-47d6-4ade-90a0-b1bc70866a05",
     slug: "4-beds-3-baths-apartment-for-sale-101 m²_id_1c46e581-47d6-4ade-90a0-b1bc70866a05",
     pictures: [],
+    title:
+      "4 beds, 3 baths apartment for sale, 101 m² in governador celso ramos",
     description: "4 beds, 3 baths apartment for sale, 101 m²",
     price: 1490000,
     characteristics: [

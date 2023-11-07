@@ -34,6 +34,7 @@ export interface Property {
   id: string;
   slug: string;
   pictures: PropertyPicture[];
+  title: string;
   description: string;
   price: number;
   condoFee?: number;
