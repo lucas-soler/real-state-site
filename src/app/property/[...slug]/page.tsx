@@ -36,9 +36,11 @@ export default function PropertyPage({ params: { slug } }: PageProps) {
 }
 
 export async function generateStaticParams() {
-  return properties.map((property) => ({
+  const slugs = properties.map((property) => ({
     slug: [property.address.citySlug, property.address.state],
   }));
+
+  return slugs;
 }
 
 export async function generateMetadata(
@@ -53,9 +55,7 @@ export async function generateMetadata(
     (property) => property.id === slugPropertyID
   )!;
 
-  console.log("gerando metadata");
-  console.log(property);
-  console.log(slug);
+  if (!property) return {};
 
   return {
     manifest: "/manifest.json",
